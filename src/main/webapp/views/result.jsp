@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Result: ${people1 }
+	Result: ${people }
+	Welcome back ${name}
 </body>
 </html>

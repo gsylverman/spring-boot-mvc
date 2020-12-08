@@ -12,6 +12,11 @@ import com.gavril.mvc001.model.People;
 @Controller
 public class MyController 
 {
+	@ModelAttribute
+	public void modelData(Model m) {
+		m.addAttribute("name", "Some Name");
+	}
+	
 	@RequestMapping("/")
 	public String getPage() {
 		
@@ -28,7 +33,7 @@ public class MyController
 	}
 	
 	@RequestMapping("add-people")
-	public String add(@ModelAttribute("people1") People people) {
+	public String add(@ModelAttribute("people") People people) {
 		
 		return "result";
 	}
