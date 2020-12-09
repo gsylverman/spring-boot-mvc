@@ -14,6 +14,16 @@
 		<input type="text" name="id" /><br/>
 		<input type="submit" /><br/>
 	</form>
+	<hr/>
+</div>
+<div>
+	<h1 >get One</h1>
+	<form action="getOneByName">
+		<label>Enter your name:</label>
+		<input type="text" name="name" /><br/>
+		<input type="submit" /><br/>
+	</form>
+	<hr/>
 </div>
 	<h1 >add One</h1>
 	<form action="add-people">
@@ -23,5 +33,6 @@
 		<input type="number" name="age" /><br/>
 		<input type="submit" /><br/>
 	</form>
+	<hr/>
 </body>
 </html>

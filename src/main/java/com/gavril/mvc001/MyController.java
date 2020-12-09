@@ -45,6 +45,13 @@ public class MyController
 		return "showPeople";
 	}
 	
+	@GetMapping("getOneByName")
+	public String getOneByName(@RequestParam String name, Model m) {
+		
+		m.addAttribute("list", repo.findByName(name));
+		return "showPeople";
+	}
+	
 	@GetMapping("getPeople")
 	public String getPeople(Model m) {
 		
