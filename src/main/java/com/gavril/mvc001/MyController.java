@@ -1,8 +1,6 @@
 package com.gavril.mvc001;
 
-import java.util.Arrays;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -17,6 +15,9 @@ import com.gavril.mvc001.model.People;
 @Controller
 public class MyController 
 {
+	@Autowired
+	PeopleRepo repo;
+	
 	@ModelAttribute
 	public void modelData(Model m) {
 		m.addAttribute("name", "Some Name");
@@ -39,8 +40,8 @@ public class MyController
 	
 	@GetMapping("getPeople")
 	public String getPeople(Model m) {
-		List<People> list = Arrays.asList(new People(1, "Andrei"), new People(2, "George"));
-		m.addAttribute("list", list);
+		
+		m.addAttribute("list", repo.findAll());
 		
 		return "showPeople";
 	}

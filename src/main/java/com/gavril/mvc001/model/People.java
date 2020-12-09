@@ -1,12 +1,20 @@
 package com.gavril.mvc001.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class People {
 	
+	@Id
 	private int id;
 	private String name;
 	
+	
+	public People() {
+	}
+
 	public People(int id, String name) {
-		super();
 		this.id = id;
 		this.name = name;
 	}
