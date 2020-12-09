@@ -38,6 +38,13 @@ public class MyController
 		return "result";
 	}
 	
+	@GetMapping("getOnePeople")
+	public String getOnePeople(@RequestParam int id, Model m) {
+		
+		m.addAttribute("list", repo.getOne(id));
+		return "showPeople";
+	}
+	
 	@GetMapping("getPeople")
 	public String getPeople(Model m) {
 		
@@ -47,8 +54,9 @@ public class MyController
 	}
 	
 	@RequestMapping(value = "add-people", method = RequestMethod.GET)
-	public String add(@ModelAttribute("people") People people) {
+	public String add(@ModelAttribute People people) {
 		
+		repo.save(people);
 		return "result";
 	}
 }
