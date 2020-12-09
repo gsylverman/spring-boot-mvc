@@ -48,7 +48,9 @@ public class MyController
 	@GetMapping("getOneByName")
 	public String getOneByName(@RequestParam String name, Model m) {
 		
-		m.addAttribute("list", repo.findByName(name));
+//		m.addAttribute("list", repo.findByName(name)); //Query DSL
+		m.addAttribute("list", repo.findByCustomQuery(name)); // Query Annotation
+		
 		return "showPeople";
 	}
 	
