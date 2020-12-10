@@ -2,9 +2,11 @@ package com.gavril.mvc001.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class People {
+@Table(name = "people")
+public class Person {
 	
 	@Id
 	private int id;
@@ -12,10 +14,10 @@ public class People {
 	private int age;
 	
 	
-	public People() {
+	public Person() {
 	}
 
-	public People(int id, String name, int age) {
+	public Person(int id, String name, int age) {
 		this.id = id;
 		this.name = name;
 		this.age = age;

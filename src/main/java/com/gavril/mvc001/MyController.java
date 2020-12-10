@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.gavril.mvc001.model.People;
+import com.gavril.mvc001.model.Person;
 
 @Controller
 public class MyController 
@@ -29,16 +29,7 @@ public class MyController
 		return "index";
 	}
 	
-	@RequestMapping("/add")
-	public String getResult(@RequestParam("nr1") int n1, @RequestParam("nr2") int n2, ModelMap m) {
-		
-		int result = n1 + n2;
-		m.addAttribute("res", result);
-	
-		return "result";
-	}
-	
-	@GetMapping("getOnePeople")
+	@GetMapping("getOnePerson")
 	public String getOnePeople(@RequestParam int id, Model m) {
 		
 		m.addAttribute("list", repo.getOne(id));
@@ -58,14 +49,13 @@ public class MyController
 	public String getPeople(Model m) {
 		
 		m.addAttribute("list", repo.findAll());
-		
 		return "showPeople";
 	}
 	
-	@RequestMapping(value = "add-people", method = RequestMethod.GET)
-	public String add(@ModelAttribute People people) {
+	@RequestMapping(value = "add-person", method = RequestMethod.GET)
+	public String add(@ModelAttribute Person person) {
 		
-		repo.save(people);
+		repo.save(person);
 		return "result";
 	}
 }

@@ -6,12 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.gavril.mvc001.model.People;
+import com.gavril.mvc001.model.Person;
 
-public interface PeopleRepo extends JpaRepository<People, Integer>{
+public interface PeopleRepo extends JpaRepository<Person, Integer>{
 
-	@Query("FROM People WHERE name= :name") // Query Annotation
-	List<People> findByCustomQuery(@Param("name") String name); 
+	@Query("FROM Person WHERE name= :name") // Query Annotation
+	List<Person> findByCustomQuery(@Param("name") String name); 
 
 	// List<People> findByName(String name); //Query DSL
 	
